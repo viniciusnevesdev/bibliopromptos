@@ -1,36 +1,23 @@
-# BiblioPromptosAPP — Protótipo interativo V0.2.1
+# BiblioPromptosAPP — Protótipo V0.2.2
 
 ## Abrir
-- Site publicado: https://bibliopromptos.pages.dev/
-- Código: https://github.com/viniciusnevesdev/bibliopromptos
-- A versão com arquivos separados utiliza `index.html`, `style.css` e `app.js`, sem dependências externas.
-- O arquivo `BiblioPromptosAPP_Interativo_v0.2.1.html` possui HTML, CSS e JS embutidos para testes locais/Sitecase. A disponibilidade de armazenamento persistente pode variar em visualizadores locais.
+- Publicação: https://bibliopromptos.pages.dev/
+- Código-fonte: https://github.com/viniciusnevesdev/bibliopromptos
+- `index.html`, `style.css`, `app.js`: versão em arquivos separados.
+- `BiblioPromptosAPP_Interativo_v0.2.2.html`: arquivo único HTML + CSS + JavaScript para Sitecase.
 
-## Novidades
-- Miniaturas opcionais de fotografia em **prompts** e **construtores**, com ícone de foto quando não há imagem.
-- Escolha de imagem local, ajuste de enquadramento quadrado em X e Y, confirmação, substituição e remoção.
-- Otimização exclusivamente no navegador: redimensionamento progressivo de alta qualidade para **até 512 × 512 pixels**, codificação **WebP qualidade 0,86** se suportada, com fallback para PNG. O arquivo original não é retido.
-- `IndexedDB` guarda os arquivos de imagem, `localStorage` continua guardando prompts/construtores e referências. Os registros anteriores (chave `bp-demo-v4`) são preservados.
-- Duplicar um prompt ou salvar uma cópia do construtor cria uma **referência e registro de imagem independentes**; apagar a imagem da cópia não afeta o original.
-- Backup ZIP: `dados.json` + pasta `miniaturas/` com imagens realmente referenciadas. Exportação e importação com verificação CRC32 e validação. ZIP emitido em modo **Store** (sem compressão adicional, imagens já comprimidas), compatível com gerenciadores ZIP comuns. Importa backups ZIP gerados por esta versão; mantém importação de JSON anterior, sem imagens.
-- Ajustes → Dados e segurança: exportação/importação. O backup ZIP contém os textos e fotografias privadas: guarde-o em local seguro.
-- A edição estrutural e o mecanismo de arraste por Pointer Events foram preservados.
+## Ajustes desta versão (04/11/2026)
+- Cabeçalho com altura visual padrão de 50px (antes aproximadamente 67px; redução ~25%), através do token existente `--header-min-height` em **Ajustes → Design Tokens**. Área segura do iPhone mantida separadamente.
+- Todos os controles do cabeçalho alinhados verticalmente ao centro, com áreas de toque confortáveis.
+- Retirada a segunda miniatura ao lado do título nas páginas de prompt pronto e uso do construtor. Miniatura aparece no cartão dedicado.
+- Título do cartão alterado para **Miniatura de exemplo de resultado**, centralizado. Removido o aviso “Imagem opcional · salva localmente” e o prefixo “Dica:”. Mantida a orientação discreta restante, adequada a prompts e construtores.
+- Miniaturas em listas: 42px → 55px; miniaturas no cartão: 70px → 91px (aproximadamente +30%). Tamanhos regulados pelos tokens `--thumb-list-size` e `--thumb-detail-size`.
+- Imagens com transparência detectadas pelos pixels alfa da miniatura otimizada; borda e fundo do contêiner são ocultados apenas quando há transparência. Alpha preservado na renderização, WebP/PNG e no backup ZIP.
+- “Configurações de respostas” virou **Construa seu prompt**, título com peso maior e centralização; o botão “Salvas” continua acessível, com adaptação a telas estreitas.
+- Lógica de `Pointer Events` de arrastar/reordenar e armazenamento/duplicação/exportação de miniaturas preservados.
 
 ## Testes e limites
-- Sintaxe JS validada (`node --check`).
-- Fluxos de miniatura, redimensionamento, duplicação independente, remoção, ZIP e restauração: testados em Chromium headless com simulação de storage para executar o código do app isoladamente. Não substituir pelo teste real no Safari/IndexedDB do iPhone.
-- Criação e leitura de ZIP testadas também pelo `zipfile` do Python, com CRC32 válido.
-- Teste manual no Safari/iPhone da **V0.2.1** permanece pendente. A V0.2.0 já tinha reordenação por toque validada pelo usuário no Safari; o código da rotina de arraste não foi modificado.
-- PWA instalado/offline: ainda não é implementação confirmada. Sem backend ou uploads de imagens pessoais.
-- Acessibilidade de zoom: 512 pixels dão margem para densidade Retina e ampliação moderada; ampliações grandes não podem recuperar detalhe além da imagem armazenada.
-
-## Estrutura
-- `index.html`: estrutura e seletores de arquivos.
-- `style.css`: interface e miniaturas.
-- `app.js`: biblioteca, editor, arraste, IndexedDB, redimensionamento, ZIP e Design Tokens.
-- `BiblioPromptosAPP_Interativo_v0.2.1.html`: versão independente em um único arquivo.
-
-## Segurança e continuidade
-- Faça **backup ZIP antes de limpar dados do navegador** ou trocar de telefone.
-- A importação substitui os dados locais, com confirmação. Não é sincronização automática.
-- Não envie o backup com imagens privadas a repositórios públicos.
+- Verificar sintaxe JS e fluxo de personalização visual em Chromium e no Safari real.
+- Testar transparência a partir de um PNG transparente e um JPEG opaco; confirmar exportação/restauração ZIP após atualização.
+- **Atenção:** o site ainda é um protótipo. Safari/iPhone desta versão e PWA instalado precisam de validação manual. Não é garantia de funcionamento offline.
+- Fotos pessoais não são enviadas ao servidor. IndexedDB guarda as miniaturas; faça backup ZIP antes de trocar de aparelho ou limpar dados do navegador.

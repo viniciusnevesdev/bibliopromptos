@@ -4,7 +4,7 @@
 - Publicação: https://bibliopromptos.pages.dev/
 - Código-fonte: https://github.com/viniciusnevesdev/bibliopromptos
 - `index.html`, `style.css`, `app.js`: versão em arquivos separados.
-- `BiblioPromptosAPP_Interativo_v0.2.2.html`: arquivo único HTML + CSS + JavaScript para Sitecase.
+- `BiblioPromptosAPP_Interativo_v0.2.3.html`: arquivo único HTML + CSS + JavaScript para Sitecase.
 
 ## Ajustes desta versão (04/11/2026)
 - Cabeçalho com altura visual padrão de 50px (antes aproximadamente 67px; redução ~25%), através do token existente `--header-min-height` em **Ajustes → Design Tokens**. Área segura do iPhone mantida separadamente.

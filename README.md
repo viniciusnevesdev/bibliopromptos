@@ -3,8 +3,8 @@
 ## Abrir
 - Publicação: https://bibliopromptos.pages.dev/
 - Código-fonte: https://github.com/viniciusnevesdev/bibliopromptos
-- `index.html`, `style.css`, `app.js`: versão em arquivos separados.
-- `BiblioPromptosAPP_Interativo_v0.2.6.html`: arquivo único HTML + CSS + JavaScript para Sitecase.
+- `index.html`, `style.css`, `app.js`, `constructor_io.js`, `constructor_docs.js`: versão em arquivos separados.
+- `BiblioPromptosAPP_Interativo_v0.2.7.html`: arquivo único HTML + CSS + JavaScript para Sitecase.
 
 ## Histórico de ajustes (04–06/11/2026)
 - Cabeçalho com altura visual padrão de 50px (antes aproximadamente 67px; redução ~25%), através do token existente `--header-min-height` em **Ajustes → Design Tokens**. Área segura do iPhone mantida separadamente.
@@ -29,3 +29,11 @@
 - Correção de zoom automático do Safari: inputs, seletores e campos de texto com fonte mínima de 16px; contenção de rolagem horizontal externa. Zoom manual de acessibilidade preservado.
 - Área de filtros horizontais, gestos de arrastar e soltar e funcionamento das miniaturas preservados.
 - Testes de unidade automatizados passaram; comportamento no Safari real após essa mudança requer validação no iPhone.
+
+## V0.2.7 — Construtores individuais gerados por IA
+- Especificação oficial: BIBLIOPROMPTOS_ESPECIFICACAO_CONSTRUTORES.md.
+- Texto reutilizável: BIBLIOPROMPTOS_SOLICITACAO_IA.md.
+- Importação individual em Construtores e Ajustes (JSON ou ZIP), prévia e confirmação, validação forte e conflito de IDs tratado como cópia.
+- Exportação individual no menu de cada construtor; miniatura opcional em ZIP.
+- Ferramentas de copiar, baixar e compartilhar a especificação, copiar solicitação para IA.
+- Backup completo permanece separado; arraste, tokens e miniaturas permanecem intactos.

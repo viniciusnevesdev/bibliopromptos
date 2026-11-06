@@ -1,0 +1,83 @@
+{
+  "format": "bibliopromptos-constructor-v1",
+  "formatVersion": 1,
+  "constructor": {
+    "id": "fidelidade-visual-exemplo-001",
+    "title": "Controle de Fidelidade Visual — Exemplo",
+    "description": "Demonstra núcleo universal, modalidades e condição de refinamento.",
+    "category": "Imagem",
+    "steps": [
+      {
+        "id": "etapa-base",
+        "title": "Base",
+        "blocks": [
+          {
+            "id": "nucleo-universal",
+            "type": "fixed",
+            "title": "Preservação universal",
+            "text": "Preserve a identidade, a composição e os elementos essenciais da referência."
+          },
+          {
+            "id": "modalidade",
+            "type": "choice",
+            "title": "Tipo de resultado",
+            "options": [
+              {
+                "id": "foto",
+                "label": "Fotografia",
+                "text": "Estilo fotográfico natural, sem aparência artificial."
+              },
+              {
+                "id": "render",
+                "label": "Resina 3D",
+                "text": "Render de resina brilhante com geometria escultórica."
+              }
+            ]
+          },
+          {
+            "id": "brilho-resina",
+            "type": "choice",
+            "title": "Intensidade de brilho",
+            "visibleIf": {
+              "id": "modalidade",
+              "value": "render"
+            },
+            "options": [
+              {
+                "id": "brilho-suave",
+                "label": "Suave",
+                "text": "Reflexos moderados."
+              },
+              {
+                "id": "brilho-intenso",
+                "label": "Intenso",
+                "text": "Reflexos especulares fortes e nítidos."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "etapa-enquadramento",
+        "title": "Enquadramento",
+        "blocks": [
+          {
+            "id": "angulo-yaw",
+            "type": "number",
+            "title": "Yaw",
+            "text": "Rotação horizontal: {{value}} graus.",
+            "hint": "Informe um valor positivo ou negativo",
+            "default": "0"
+          },
+          {
+            "id": "notas-livres",
+            "type": "text",
+            "title": "Observações adicionais",
+            "text": "Observações: {{value}}."
+          }
+        ]
+      }
+    ]
+  },
+  "thumbnail": null
+}

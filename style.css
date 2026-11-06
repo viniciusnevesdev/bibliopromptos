@@ -90,3 +90,15 @@ body.modal-open{overflow:hidden}
 .detail-head .textwrap{flex:0 1 auto;width:100%;max-width:100%;margin-inline:auto;align-items:center;text-align:center}
 .detail-head .textwrap h1,.detail-head .textwrap p{max-width:100%;text-align:center}
 .detail-head .metric{width:100%;justify-content:center;flex-wrap:wrap}
+
+/* BiblioPromptos v0.2.6: ordenação e correção de zoom no Safari iOS.
+   Campos com menos de 16px podem provocar zoom involuntário no foco.
+   O zoom manual de acessibilidade permanece permitido. */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),textarea,select{font-size:16px!important}
+html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none;-webkit-text-size-adjust:100%}
+.app{width:100%;max-width:var(--card-max-width);overflow-x:clip}
+.sort-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 1px 12px;min-height:32px}
+.sort-count{font-size:11px;color:var(--muted);white-space:nowrap}
+.sort-trigger{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;max-width:80%;padding:7px 10px;border-radius:11px;border:1px solid var(--line);background:var(--surface);font-weight:650;font-size:12px;color:var(--text);white-space:nowrap}
+.sort-trigger .ic{width:14px;height:14px}
+.sort-trigger span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
